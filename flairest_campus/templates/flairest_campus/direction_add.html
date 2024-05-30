@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Добавить направление</title>
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/direction-style.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/index-style.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/redact.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static 'flairest_campus/scripts/direction.js' %}"></script>
+    <script src="{% static 'flairest_campus/scripts/forma.js' %}"></script>
+    <script src="{% static 'flairest_campus/scripts/img-placeholder.js' %}"></script>
+</head>
+<body>
+    <img class="header-decor" src = "{% static 'flairest_campus/image/header-decor-violet.svg' %}">
+    <header class="header-nav">
+        <a href='https://studgorod.ru/' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
+        <div class="site-nav">
+            <a href="https://studgorod.ru/#news" class="news">Новости</a>
+            <a href="../../../catalog" class="catalog">ВУЗы</a>
+            <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
+            <a href="https://studgorod.ru/" class="more">Ещё</a>
+        </div>
+        <a href="../../profile" class="enter">Мой профиль</a>
+    </header>
+    <main class="direction-main">
+        <div class="direction-intro">
+            <nav id="back">
+                <div class="back-wrapper">
+                    <input type=button value="Назад" onClick="javascript:history.go(-1);">
+                </div>
+            </nav>
+    <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1 class="direction-title">Название направления</h1>
+                <div class="input-form title">{{ form.name }}</div>
+                <div class="direction-enroll-info">
+                    <p class="direction-code">Код направления</p>
+                    <div class="input-form">{{ form.speciality_cod }}</div>
+                    <p class="direction-ege-subjects">ЕГЭ</p>
+                    <div class="input-form">{{ form.ege }}</div>
+                    <!-- <table>
+                    <tr><td id="education-level">ЕГЭ</td>
+                        <td id="education-level-value">{{ form.ege }}</td></tr>
+                    </table> -->
+                <div class="direction-ege-subjects">Фото кампуса</div>
+                    <div class="photo-form">
+                        {{ form.photo }}
+                        <label for="input__file" class="input__file-button">
+                            <span class="input__file-button-text unselectable">Выберите фото</span>
+                        </label>
+                    </div>
+                </div>
+            <pre class="direction-description">О направлении</pre>
+            <div class="input-form" id="form-about"><p>{{ form.about }}</p></div>
+        </div>
+        <img src="{% static 'flairest_campus/image/header-direction.png' %}" style="width: 100%;" alt="">
+        <section class="direction-features">
+            <h2>ОСОБЕННОСТИ НАПРАВЛЕНИЯ</h2>
+            <div class="input-form light"><pre class="direction-features-description">{{ form.special }}</pre></div>
+        </section>
+        <section class="direction-details">
+            <h2>Детали</h2>
+            <table class="details">
+                <tr><td id="college">Вуз</td><td id="college-value"><div class="table-textarea">{{ form.university }}</div></td></tr>
+                <!-- <tr><td id="faculty">Институт</td><td id="faculty-value"><div class="table-textarea">{{ form.faculty }}</div></td></tr> -->
+                <tr><td id="city">Город</td><td id="city-value">{{ form.city }}</td></tr>
+                <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ form.level }}</td></tr>
+                <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ form.duration }}</td></tr>
+                <tr><td id="education-form">Форма обучения</td><td id="education-form-value"><div class="table-textarea">{{ form.study_form }}</div></td></tr>
+            </table>
+        </section>
+        <!--
+        <section class="direction-enrollment">
+            <h2>Поступление</h2>
+            <div class="enrollment-filter">
+                <button id="budget">Бюджет</button>
+                <button id="paid">Платно</button>
+            </div>
+        </section>
+        -->
+        <section class="description-cl">
+            <h2>Ключевые дисциплины</h2>
+            <div class="input-form light"><p style="width: 85%;">{{ form.discipline }}</p></div>
+        </section>
+        <section class="direction-details">
+            <table class="details">
+                <tr><td id="college">Стоимость обучения (в рублях)</td><td id="college-value">{{ form.price }}</td></tr>
+                <tr><td id="faculty">Проходной балл на бюджет и платное</td><td id="faculty-value">{{ form.passing_score_free }} {{ form.passing_score_paid }}</td></tr>
+                <tr><td id="city">Количество мест на бюджет и платное</td><td id="city-value">{{ form.max_students_number_free }} {{ form.max_students_number_paid }}</td></tr>
+            </table>
+        </section>
+        <section class="direction-questions">
+            <h2>Ссылки на контакты</h2>
+            <div class="input-form light"><p>{{ form.links }}</p></div>
+        </section>
+        <section>
+            <button type="submit">Добавить</button>
+        </section>
+    </form>
+    </main>
+    <footer class="main-footer">
+        <div class="first-column">
+            <a href="/">
+                <img class="logo" src="{% static 'flairest_campus/image/kampus.png' %}">
+            </a>
+            <p class="first-column">
+                Екатеринбург - студенческая столица России!
+            </p>
+            <p class="first-column">
+                Подпишитесь на наши соцсети
+            </p>
+            <ul class="social-list">
+                <li class="social-list-item">
+                    <a href="https://ok.ru/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/ok.svg' %}">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://vk.com/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/vk.svg' %}">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://web.telegram.org/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/tg.svg' %}">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://www.whatsapp.com/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/wa.svg' %}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="second-column">
+            <ul class="footer-nav">
+                <a href="https://studgorod.ru/#news">Новости</a>
+                <a href="https://studgorod.ru/#events">Мероприятия</a>
+                <a href="https://studgorod.ru/partners">Партнеры</a>
+                <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
+            </ul>
+            <ul class="footer-agreements">
+                <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
+                <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
