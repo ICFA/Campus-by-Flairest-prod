@@ -7,13 +7,13 @@ import datetime
 import locale
 from multiselectfield import MultiSelectField
 
-
+'''
 locale.setlocale(
     category=locale.LC_ALL,
     locale="Russian"
 )
 
-'''
+
 class My_User(User):
     username = User.username
 '''
