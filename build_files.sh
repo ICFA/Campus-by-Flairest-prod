@@ -2,8 +2,6 @@ pip install -r requirements.txt
 
 python manage.py collectstatic --no-input
 
-chmod delete_specific_from_multiselectfield.py
-
 ./delete_specific_from_multiselectfield.py
 
 # python manage.py makemigrations
