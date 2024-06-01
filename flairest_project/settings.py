@@ -83,8 +83,8 @@ AUTH_USER_MODEL = 'flairest_campus.NewUser'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://post:ioNybWXPQX7gtnIMLOQKEO5WcjpdIKhQ@dpg-cpd1c3n79t8c73eg2lfg-a/flai_db_8x06',
-        # default='postgres://post:ioNybWXPQX7gtnIMLOQKEO5WcjpdIKhQ@dpg-cpd1c3n79t8c73eg2lfg-a.frankfurt-postgres.render.com/flai_db_8x06',
+        default='postgres://post:Z5zrr2Ro5U6p2y05RXnNzf8eGqIwYyYf@dpg-cpdg53lds78s73ehbqvg-a/flai_db_3nv5',
+        # default='postgres://post:Z5zrr2Ro5U6p2y05RXnNzf8eGqIwYyYf@dpg-cpdg53lds78s73ehbqvg-a.frankfurt-postgres.render.com/flai_db_3nv5',
         conn_max_age=600
     )
 }
@@ -123,8 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static_collected'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # media files (jpg, png)
