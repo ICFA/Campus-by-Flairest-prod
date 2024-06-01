@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rxvsf)^!&f77bh6!#c+kkl$+tlp3m3#0gt-2bygp9fatsi^1w#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*', 'http://*', 'https://*.ngrok-free.app', 'http://*.ngrok-free.app']
@@ -83,8 +83,8 @@ AUTH_USER_MODEL = 'flairest_campus.NewUser'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://post:Z5zrr2Ro5U6p2y05RXnNzf8eGqIwYyYf@dpg-cpdg53lds78s73ehbqvg-a/flai_db_3nv5',
-        # default='postgres://post:Z5zrr2Ro5U6p2y05RXnNzf8eGqIwYyYf@dpg-cpdg53lds78s73ehbqvg-a.frankfurt-postgres.render.com/flai_db_3nv5',
+        default='postgres://post:SLbLcuqR7q1ePlLZ8j0rOXUbdnWoHrBf@dpg-cpdgt87109ks73ehei20-a/flai_db_lxoj',
+        # default='postgres://post:SLbLcuqR7q1ePlLZ8j0rOXUbdnWoHrBf@dpg-cpdgt87109ks73ehei20-a.frankfurt-postgres.render.com/flai_db_lxoj',
         conn_max_age=600
     )
 }
