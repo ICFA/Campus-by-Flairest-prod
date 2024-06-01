@@ -1,5 +1,5 @@
 print([x for x in range(78, 90)])
-with open(".venv/Lib/site-packages/multiselectfield/db/fields.py", "r+") as f:
+with open(".venv/Lib/site-packages/multiselectfield/db/fields.py", "w") as f:
     d = f.readlines()
     f.seek(0)
     if 'def _get_flatchoices(self):' in d[77]:
