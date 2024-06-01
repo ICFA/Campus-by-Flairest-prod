@@ -7,3 +7,4 @@ with open(".venv/Lib/site-packages/multiselectfield/db/fields.py", "r+") as f:
             if i not in [x for x in range(77, 90)]:
                 f.write(d[i])
     f.truncate()
+    f.close()
