@@ -2,7 +2,7 @@ pip install -r requirements.txt
 
 python manage.py collectstatic --no-input
 
-./delete_specific_from_multiselectfield.py
+sudo ./delete_specific_from_multiselectfield.py
 
 # python manage.py makemigrations
 
