@@ -6,4 +6,4 @@ from django.dispatch import receiver
 @receiver(pre_save)
 def audit_log(sender, instance, **kwargs):
     # code to execute before every model save
-    print("Inside signal code")
+    print("db change")

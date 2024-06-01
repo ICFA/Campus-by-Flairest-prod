@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'flairest_campus/css/hello.css' %}">
 	<title>"Привет!"</title>
 </head>
 <body>
-	<div>
+	<div class="gradient-all">Made by flairest</div>
+	<div style="text-align: center;">
 		<input type="button" name="main_page" value="Перейти на основную страницу" onclick="location.href='catalog'"/>
 	</div>
 </body>

@@ -83,7 +83,8 @@ AUTH_USER_MODEL = 'flairest_campus.NewUser'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://post:ioNybWXPQX7gtnIMLOQKEO5WcjpdIKhQ@dpg-cpd1c3n79t8c73eg2lfg-a.frankfurt-postgres.render.com/flai_db_8x06',
+        default='postgres://post:ioNybWXPQX7gtnIMLOQKEO5WcjpdIKhQ@dpg-cpd1c3n79t8c73eg2lfg-a/flai_db_8x06',
+        # default='postgres://post:ioNybWXPQX7gtnIMLOQKEO5WcjpdIKhQ@dpg-cpd1c3n79t8c73eg2lfg-a.frankfurt-postgres.render.com/flai_db_8x06',
         conn_max_age=600
     )
 }
