@@ -10,6 +10,8 @@ from .models import NewUser, University, Institute, Specialty, Review
 from django.core.files.storage import FileSystemStorage
 from django.views.generic import CreateView, UpdateView
 from .forms import UniForm, SpecForm, RevForm
+import asyncio
+import subprocess
 
 '''
 def home_page(request):
@@ -28,7 +30,19 @@ def home_page(request):
     return render(request, 'flairest_campus/index.html')
 '''
 
-def home_page(request):
+bashCommand1 = "curl https://flai-web.onrender.com"
+bashCommand2 = "curl https://curl-req.onrender.com"
+
+async def periodic_operation(interval):
+    while True:
+        await asyncio.sleep(interval)
+        process = subprocess.Popen(bashCommand1.split(), stdout=subprocess.PIPE)
+        process = subprocess.Popen(bashCommand2.split(), stdout=subprocess.PIPE)
+        output, error = process.communicate()
+
+async def home_page(request):
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(periodic_operation(300))
     return render(request, 'flairest_campus/hello_page.html')
 
 def profile_page(request):
